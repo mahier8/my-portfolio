@@ -36,7 +36,8 @@ const TypingSubtitle = styled.p`
   white-space: nowrap;
   overflow: hidden;
   width: 0;
-  animation: typing 3s steps(30, end) forwards, blink 0.8s step-end infinite;
+//   animation: typing 3s steps(30, end) forwards, blink 0.8s step-end infinite;
+  animation: typing 3s steps(30, end) forwards;
 
   @keyframes typing {
     from {

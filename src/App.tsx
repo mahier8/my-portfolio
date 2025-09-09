@@ -4,6 +4,7 @@ import Intro from "./sections/Intro";
 import Testimonials from "./sections/Testimonials";
 import Portfolio from "./sections/Portfolio";
 import Works from "./sections/Works";
+import Footer from "./components/Footer";
 // import SeasonBackground from "./components/SeasonBackground";
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Testimonials />
         <Portfolio />
         <Works />
+        <Footer />
       </main>
     </>
   );

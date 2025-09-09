@@ -68,8 +68,12 @@ const Section = styled.section`
 `;
 
 const Title = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
+//   font-size: 2rem;
+//   font-weight: 700;
+//   margin-bottom: 40px;
+
+  text-align: center;
+  font-size: 3rem;
   margin-bottom: 40px;
 `;
 
