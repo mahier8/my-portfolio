@@ -59,6 +59,14 @@ const SectionTitle = styled.h2`
   text-align: center;
   font-size: clamp(2rem, 5vw, 3rem); /* scales with viewport */
   margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;  // smaller but still readable
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem; // very small devices
+  }
 `;
 
 const CardsGrid = styled.div`

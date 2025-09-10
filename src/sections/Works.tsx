@@ -17,21 +17,21 @@ const slides = [
     id: "1",
     icon: "/assets/icons/icons8-briefcase-50-white.png",
     title: "Career",
-    desc: "I have been developing projects for the past two years...",
+    desc: "I have been developing projects for the past two years. I started my development journey by completing a few certifications with FreeCodeCamp and then moved swiftly to develop a portfolio. I then continued by focusing on front-end development, leading me to specialize in React.",
     img: Seattle,
   },
   {
     id: "2",
     icon: "/assets/icons/icons8-africa-50.png",
     title: "Background",
-    desc: "Originally from a psychology and educational background...",
+    desc: "Originally from a psychology an educational background, I taught children and adults in South Korea for 7 years, learning many valuable skills along the way. I am from South Africa and, I have a Bachelor's Degree in Psychology and a Master's Degree in Applied Linguistics.",
     img: rugby_image,
   },
   {
     id: "3",
     icon: "/assets/icons/icons8-soccer-50.png",
     title: "Hobbies",
-    desc: "Outside of development and education I spend most of my time...",
+    desc: "Outside of development and education I spend most of my time with my family or playing football. I have been a Liverpool FC supporter for 30 years, and, with the help of my Wife, we visited Anfield for our honeymoon.",
     img: beattle_image,
   },
 ];
@@ -52,8 +52,8 @@ export default function Works() {
           <SwiperSlide key={slide.id}>
             <Item>
               <Left>
-                <img src={slide.icon} alt={slide.title} width={40} height={40} />
-                <h2>{slide.title}</h2>
+                {/* <img src={slide.icon} alt={slide.title} width={40} height={40} /> */}
+                <SlideHeader>{slide.title}</SlideHeader>
                 <p>{slide.desc}</p>
               </Left>
               <Right>
@@ -71,6 +71,8 @@ export default function Works() {
 const WorksContainer = styled.div`
   width: 100%;
   padding: 60px 0;
+  min-height: 100dvh;
+  overflow-y: auto;
 
 /* Swiper arrows */
   .swiper-button-next,
@@ -115,26 +117,66 @@ const SectionTitle = styled.h1`
   text-align: center;
   font-size: 3rem;
   margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;  // smaller but still readable
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem; // very small devices
+  }
 `;
 
 const Item = styled.div`
-  width: 100%; // <-- make it take the slide's width, not full viewport
-  max-width: 700px; // optional max width
+  width: 100%;
+  max-width: 900px;  /* bigger limit for desktops */
   display: flex;
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin: 0 auto; /* center it in the slide */
+
+  @media (max-width: 1024px) {
+    max-width: 700px;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
+    max-width: 90%; /* shrink card */
+  }
+
+  @media (max-width: 480px) {
+    max-width: 95%;
+    border-radius: 12px;
   }
 `;
-
 
 const Left = styled.div`
   flex: 4;
   padding: 20px;
+
+  p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    text-align: center;
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
 `;
 
 const Right = styled.div`
@@ -149,5 +191,34 @@ const Right = styled.div`
     object-fit: cover;
     max-height: 400px;
     transform: rotate(-10deg);
+    transition: transform 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      max-height: 450px;
+      transform: rotate(0); /* ✅ remove tilt on small screens */
+    }
+  }
+
+  @media (max-width: 480px) {
+    img {
+      max-height: 250px;
+    }
   }
 `;
+
+const SlideHeader = styled.h3`
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  align-items: left;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+  }
+`;
+

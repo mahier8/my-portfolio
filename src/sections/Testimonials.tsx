@@ -65,6 +65,9 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100dvh;
+  overflow-y: auto;
+
 `;
 
 const Title = styled.h2`
@@ -75,9 +78,18 @@ const Title = styled.h2`
   text-align: center;
   font-size: 3rem;
   margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;  // smaller but still readable
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem; // very small devices
+  }
 `;
 
 const CardGrid = styled.div`
+  margin-top: 50px;
   display: flex;
   gap: 30px;
 
@@ -131,4 +143,8 @@ const Role = styled.h4`
 const Text = styled.p`
   font-size: 0.95rem;
   color: #555;
+
+  @media (max-width: 480px) {
+    font-size: 0.85rem; // slightly smaller
+  }
 `;
