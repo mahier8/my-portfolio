@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 
 const Contact = () => {
   return (
@@ -12,7 +12,7 @@ const Contact = () => {
         <input type="text" placeholder="Name" style={{ padding: "0.5rem", borderRadius: "5px", border: "1px solid #ccc" }} />
         <input type="email" placeholder="Email" style={{ padding: "0.5rem", borderRadius: "5px", border: "1px solid #ccc" }} />
         <textarea placeholder="Message" rows={5} style={{ padding: "0.5rem", borderRadius: "5px", border: "1px solid #ccc" }} />
-        <Button type="submit" variant="default">Send</Button>
+        {/* <Button type="submit" variant="default">Send</Button> */}
       </form>
     </section>
   );
