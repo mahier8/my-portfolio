@@ -40,90 +40,39 @@ const projects: Project[] = [
 ];
 
 // Styled components
+// Styled components
 const PortfolioContainer = styled.section`
   padding: 80px 20px;
   background-color: #f7f7f7;
-  min-height: 100vh; /* ensures at least full screen but can grow */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    padding: 50px 15px;
+  }
 `;
 
 const SectionTitle = styled.h2`
-  // text-align: center;
-  // font-size: 2.5rem;
-  // font-weight: 700;
-  // margin-bottom: 40px;
-  // color: #0984e3;
-
   text-align: center;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem); /* scales with viewport */
   margin-bottom: 40px;
 `;
-
-// const CardsGrid = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   gap: 50px;
-// `;
-
-// const Image = styled.img`
-//   width: 100%;
-//   height: 350px;
-//   object-fit: cover;
-// `;
-
-const Image = styled.img`
-  width: 100%;
-  height: clamp(200px, 25vw, 350px); /* min 200px, scales with viewport width, max 350px */
-  object-fit: cover;
-`;
-
-const Content = styled.div`
-  padding: 15px;
-`;
-
-const Title = styled.h3`
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-`;
-
-const Description = styled.p`
-  font-size: 0.95rem;
-  color: #555;
-`;
-
-// const CardLink = styled.a`
-//   text-decoration: none;
-//   color: inherit;
-//   display: inline-block;
-//   width: 350px;
-//   border-radius: 15px;
-//   overflow: hidden;
-//   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-//   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-//   &:hover {
-//     transform: translateY(-10px) scale(1.03);
-//     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-//   }
-// `;
 
 const CardsGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 3vw; /* gap scales with viewport width */
+  gap: clamp(20px, 3vw, 50px);
 `;
 
 const CardLink = styled.a`
   text-decoration: none;
   color: inherit;
   display: inline-block;
-  width: clamp(250px, 30%, 400px); /* min 250px, preferred 30% of container, max 400px */
+  width: clamp(250px, 30%, 400px);
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -133,6 +82,27 @@ const CardLink = styled.a`
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   }
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: clamp(200px, 25vw, 350px);
+  object-fit: cover;
+`;
+
+const Content = styled.div`
+  padding: clamp(15px, 2vw, 25px);
+`;
+
+const Title = styled.h3`
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 700;
+  margin-bottom: 10px;
+`;
+
+const Description = styled.p`
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  color: #555;
 `;
 
 const Portfolio: React.FC = () => {

@@ -27,6 +27,10 @@ const TextContainer = styled.div`
 const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    text-align: left; 
+  }
 `;
 
 const TypingSubtitle = styled.p`
@@ -83,12 +87,38 @@ const ProfileImage = styled.img`
   }
 `;
 
+const Description = styled.p`
+  max-width: 400px;
+//   margin: 0 auto;
+  line-height: 1.6;
+  color: #333;
+  margin-top: 30px;
+
+  /* Larger screens */
+  font-size: 1.1rem; // ~20px
+
+  @media (max-width: 768px) {
+    font-size: 1rem; // ~16px
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem; // ~14px
+      max-width: 300px;
+  }
+`;
+
 const Intro: React.FC = () => {
   return (
     <Section id="intro">
       <TextContainer>
         <Title>Hi, I'm Mahier</Title>
         <TypingSubtitle>A Frontend Developer & Designer</TypingSubtitle>
+        <Description>
+            I love building intuitive, engaging web
+            experiences. With a background in linguistics and a passion for
+            coding, I create apps that make life easier—beautiful and functional
+            for users and businesses alike.
+        </Description>
         <CTAButton href="#portfolio">View Portfolio</CTAButton>
       </TextContainer>
       <ProfileImage src={profileImg} alt="Mahier Sydow" />
