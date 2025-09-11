@@ -4,7 +4,11 @@ import styled from "@emotion/styled";
 import coffee_menu from "../assets/portfolio-images/coffee_menu.jpg";
 import univeristy_image from "../assets/portfolio-images/univeristy_image.jpg";
 import old_portfolio from "../assets/portfolio-images/old_portfolio.jpg";
-
+import { SiReact, SiTypescript, SiJavascript, SiCss3, SiVite, SiReactrouter, SiFramer, SiAxios, SiSwiper  } from "react-icons/si";
+import hollys_logo from "../assets/logos/hollys_logo.gif";
+import mammoth_coffee_logo from "../assets/logos/mammoth_coffee_logo.webp";
+import mega_coffee_logo from "../assets/logos/mega_coffee_logo.png";
+import the_liter_logo from "../assets/logos/the_liter_logo.png";
 
 interface Project {
   id: string;
@@ -12,6 +16,17 @@ interface Project {
   description: string;
   imageUrl: string;
   link?: string;
+  technologies?: React.ReactNode[];
+  confidential?: boolean;
+}
+
+interface WorkProject {
+  id: string;
+  title: string;
+  description: string;
+  logo: string;
+  link?: string;
+  confidential?: boolean;
 }
 
 // Example project data
@@ -19,16 +34,18 @@ const projects: Project[] = [
   {
     id: "1",
     title: "Cafe-le-Quick",
-    description: "A responsive coffee ordering app built with TypeScript, focusing on mobile-first design and user experience.",
+    description: "A responsive coffee ordering app built with TypeScript, Jotai, Emotion, Framer Motion, Axios, Swiper.js focusing on mobile-first design and user experience.",
     imageUrl: coffee_menu,
     link: "https://cafe-le-quick.netlify.app/",
+    technologies: [<SiVite key="vite" />, <SiTypescript key="ts" />, <SiReactrouter key="react_router" />, <SiFramer key="framer" />, <SiAxios key="axios" />, <SiSwiper key="swiper" />],
   },
   {
     id: "2",
     title: "Quick University",
-    description: "A full-featured university admin app built with TypeScript, streamlining course and student management.",
+    description: "A full-featured university admin app built with TypeScript, Jotai, Emotion, Framer Motion streamlining course and student management.",
     imageUrl: univeristy_image,
     link: "https://quick-university.netlify.app/",
+    technologies: [<SiVite key="vite" />, <SiTypescript key="ts" />, <SiReactrouter key="react_router" />, <SiFramer key="framer" />, <SiAxios key="axios" />],
   },
   {
     id: "3",
@@ -36,10 +53,46 @@ const projects: Project[] = [
     description: "A look back at my earlier work and projects from my previous portfolio.",
     imageUrl: old_portfolio,
     link: "http://www.mahiersydow.com",
+    technologies: [<SiReact key="react" />, <SiJavascript key="js" />, <SiCss3 key="css" />],
   },
 ];
 
-// Styled components
+// Work Projects
+const workProjects: WorkProject[] = [
+  {
+    id: "4",
+    title: "The Liter",
+    description: "Fully developed customer-facing coffee ordering app, as well as admin dashboard for store management, inventory tracking, and sales reporting.",
+    link: "https://the-liter.com/", 
+    confidential: false,
+    logo: the_liter_logo,
+  },
+  {
+    id: "5",
+    title: "Mega Coffee",
+    description: "Developed parts of customer-facing coffee ordering app, as well as admin dashboard for store management, inventory tracking, and sales reporting.",
+    link: "https://www.mega-mgccoffee.com/#mega", 
+    confidential: false,
+    logo: mega_coffee_logo,
+  },
+    {
+    id: "6",
+    title: "Mammoth Coffee",
+    description: "Developed parts of customer-facing coffee ordering app, as well as admin dashboard for store management, inventory tracking, and sales reporting.",
+    link: "https://mmthcoffee.com/", 
+    confidential: false,
+    logo: mammoth_coffee_logo,
+  },
+    {
+    id: "7",
+    title: "Holly's Coffee",
+    description: "Developed CRM for replinishing in-store stock. Confidential internal project.",
+    link: "https://www.hollys.co.kr/", 
+    confidential: false,
+    logo: hollys_logo,
+  },
+];
+
 // Styled components
 const PortfolioContainer = styled.section`
   padding: 80px 20px;
@@ -76,19 +129,20 @@ const CardsGrid = styled.div`
   gap: clamp(20px, 3vw, 50px);
 `;
 
-const CardLink = styled.a`
+const CardLink = styled.a<{ confidential?: boolean }>`
   text-decoration: none;
   color: inherit;
   display: inline-block;
   width: clamp(250px, 30%, 400px);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: ${({ confidential }) => confidential ? "0 5px 10px rgba(0,0,0,0.05)" : "0 5px 15px rgba(0,0,0,0.1)"};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: ${({ confidential }) => confidential ? "default" : "pointer"};
 
   &:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: ${({ confidential }) => confidential ? "none" : "translateY(-10px) scale(1.03)"};
+    box-shadow: ${({ confidential }) => confidential ? "0 5px 10px rgba(0,0,0,0.05)" : "0 10px 25px rgba(0,0,0,0.15)"};
   }
 `;
 
@@ -113,10 +167,73 @@ const Description = styled.p`
   color: #555;
 `;
 
+const TechIcons = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+
+  svg {
+    font-size: 1.25rem; /* adjust size */
+    color: #0984e3;     /* or set per icon */
+    transition: transform 0.2s ease;
+  }
+
+  svg:hover {
+    transform: scale(1.2);
+  }
+`;
+
+const Divider = styled.div`
+  padding: 30px 20px;
+
+  @media (max-width: 768px) {
+    padding: 30px 15px;
+  }
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px; // space between logo and title
+`;
+
+const LogoImage = styled.img`
+  width: 50px;
+  height: 50px;
+  object-fit: contain; // keeps logo proportions
+  margin-bottom: 10px;
+`;
+
+
+
 const Portfolio: React.FC = () => {
   return (
     <PortfolioContainer id="portfolio">
-      <SectionTitle>My Projects</SectionTitle>
+
+      <SectionTitle>Work Projects</SectionTitle>
+        <CardsGrid>
+          {workProjects.map(project => (
+            <CardLink
+              key={project.id}
+              href={project.link || "#"}
+              target={project.confidential ? undefined : "_blank"}
+              rel={project.confidential ? undefined : "noopener noreferrer"}
+              confidential={project.confidential}
+            >
+              <Content>
+                <TitleContainer>
+                  <Title>{project.title}</Title>
+                  <LogoImage src={project.logo} alt={`${project.title} logo`} />
+                </TitleContainer>      
+                <Description>{project.description}</Description>
+              </Content>
+            </CardLink>
+          ))}
+        </CardsGrid>
+
+      <Divider />
+
+      <SectionTitle>Personal Projects</SectionTitle>
         <CardsGrid>
           {projects.map(project => (
             <CardLink
@@ -129,10 +246,16 @@ const Portfolio: React.FC = () => {
               <Content>
                 <Title>{project.title}</Title>
                 <Description>{project.description}</Description>
+                  {project.technologies && <TechIcons>{project.technologies}</TechIcons>}
+
               </Content>
             </CardLink>
           ))}
         </CardsGrid>
+
+
+
+
     </PortfolioContainer>
   );
 };

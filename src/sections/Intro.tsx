@@ -112,12 +112,9 @@ const Intro: React.FC = () => {
     <Section id="intro">
       <TextContainer>
         <Title>Hi, I'm Mahier</Title>
-        <TypingSubtitle>A Frontend Developer & Designer</TypingSubtitle>
+        <TypingSubtitle>A Full-stack Developer</TypingSubtitle>
         <Description>
-            I love building intuitive, engaging web
-            experiences. With a background in linguistics and a passion for
-            coding, I create apps that make life easier—beautiful and functional
-            for users and businesses alike.
+          I’m a frontend developer with 3+ years of experience building customer apps and admin platforms for some of Korea’s largest coffee franchises, including Mega Coffee, Mammoth Coffee, The Liter, and Holly's Coffee. I focus on creating seamless user experiences and scalable solutions that help businesses run more efficiently.
         </Description>
         <CTAButton href="#portfolio">View Portfolio</CTAButton>
       </TextContainer>

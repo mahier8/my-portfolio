@@ -17,7 +17,7 @@ const slides = [
     id: "1",
     icon: "/assets/icons/icons8-briefcase-50-white.png",
     title: "Career",
-    desc: "I have been developing projects for the past two years. I started my development journey by completing a few certifications with FreeCodeCamp and then moved swiftly to develop a portfolio. I then continued by focusing on front-end development, leading me to specialize in React.",
+    desc: "Having first learned to code through self-directed FreeCodeCamp certifications, I built personal projects and honed my front-end skills, specializing in React, TypeScript, and modern frameworks. Over the last three years at WALDLUST, I contributed to projects for major South Korean coffee chains, developing customer-facing mobile apps, admin dashboards, and CRM systems—delivering solutions that improved operational efficiency and user experience.",
     img: Seattle,
   },
   {

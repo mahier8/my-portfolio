@@ -123,7 +123,7 @@ const Navbar: React.FC = () => {
       <Logo href="#intro">Mahier</Logo>
 
       <Menu open={menuOpen}>
-        <MenuHeading>Connect with me</MenuHeading>
+        <MenuHeading>Contact</MenuHeading>
 
         <MenuItem>
           <FaUser />
