@@ -1,10 +1,14 @@
 // src/sections/Portfolio.tsx
 import React from "react";
 import styled from "@emotion/styled";
-import coffee_menu from "../assets/portfolio-images/coffee_menu.jpg";
-import univeristy_image from "../assets/portfolio-images/univeristy_image.jpg";
-import old_portfolio from "../assets/portfolio-images/old_portfolio.jpg";
-import { SiReact, SiTypescript, SiJavascript, SiCss3, SiVite, SiReactrouter, SiFramer, SiAxios, SiSwiper  } from "react-icons/si";
+// import coffee_menu from "../assets/portfolio-images/coffee_menu.jpg";
+// import univeristy_image from "../assets/portfolio-images/univeristy_image.jpg";
+// import old_portfolio from "../assets/portfolio-images/old_portfolio.jpg";
+import cafe_le_quick_image from "../assets/portfolio-images/cafe-le-quick-image2.png";
+import quick_university_image from "../assets/portfolio-images/quick_university_image2.png";
+import portfolio_image from "../assets/portfolio-images/portfolio_image.png";
+
+import { SiReact, SiHtml5, SiTypescript, SiJavascript, SiCss3, SiVite, SiReactrouter, SiFramer, SiAxios, SiSwiper  } from "react-icons/si";
 import hollys_logo from "../assets/logos/hollys_logo.gif";
 import mammoth_coffee_logo from "../assets/logos/mammoth_coffee_logo.webp";
 import mega_coffee_logo from "../assets/logos/mega_coffee_logo.png";
@@ -35,7 +39,7 @@ const projects: Project[] = [
     id: "1",
     title: "Cafe-le-Quick",
     description: "A responsive coffee ordering app built with TypeScript, Jotai, Emotion, Framer Motion, Axios, Swiper.js focusing on mobile-first design and user experience.",
-    imageUrl: coffee_menu,
+    imageUrl: cafe_le_quick_image,
     link: "https://cafe-le-quick.netlify.app/",
     technologies: [<SiVite key="vite" />, <SiTypescript key="ts" />, <SiReactrouter key="react_router" />, <SiFramer key="framer" />, <SiAxios key="axios" />, <SiSwiper key="swiper" />],
   },
@@ -43,7 +47,7 @@ const projects: Project[] = [
     id: "2",
     title: "Quick University",
     description: "A full-featured university admin app built with TypeScript, Jotai, Emotion, Framer Motion streamlining course and student management.",
-    imageUrl: univeristy_image,
+    imageUrl: quick_university_image,
     link: "https://quick-university.netlify.app/",
     technologies: [<SiVite key="vite" />, <SiTypescript key="ts" />, <SiReactrouter key="react_router" />, <SiFramer key="framer" />, <SiAxios key="axios" />],
   },
@@ -51,9 +55,9 @@ const projects: Project[] = [
     id: "3",
     title: "Legacy (previous portfolio)",
     description: "A look back at my earlier work and projects from my previous portfolio.",
-    imageUrl: old_portfolio,
+    imageUrl: portfolio_image,
     link: "http://www.mahiersydow.com",
-    technologies: [<SiReact key="react" />, <SiJavascript key="js" />, <SiCss3 key="css" />],
+    technologies: [<SiReact key="react" />, <SiJavascript key="js" />, <SiHtml5 key="css" />, <SiCss3 key="css" />],
   },
 ];
 
