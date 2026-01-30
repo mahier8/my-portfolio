@@ -114,7 +114,7 @@ const Intro: React.FC = () => {
         <Title>Hi, I'm Mahier</Title>
         <TypingSubtitle>A Full-stack Developer</TypingSubtitle>
         <Description>
-          I’m a full-stack developer with 3+ years of experience building customer-facing apps and admin platforms for some of Korea’s largest coffee franchises, including Mega Coffee, Mammoth Coffee, The Liter, and Holly's Coffee. I focus on creating seamless user experiences and scalable solutions that help businesses run more efficiently.
+          I’m a full-stack developer with 4+ years of experience building customer-facing apps and admin platforms for some of Korea’s largest coffee franchises, including Mega Coffee, Mammoth Coffee, The Liter, and Holly's Coffee. I focus on creating seamless user experiences and scalable solutions that help businesses run more efficiently.
         </Description>
         <CTAButton href="#portfolio">View Portfolio</CTAButton>
       </TextContainer>
